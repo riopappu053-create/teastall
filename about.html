@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us — Chai Haven | Tea House & Specialty Chai Stall</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            playfair: ['Playfair Display', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif']
+          },
+          colors: {
+            primary: '#b45309',
+            primaryHover: '#92400e',
+            primaryLight: '#fff7ed',
+            secondary: '#ea580c',
+            secondaryHover: '#c2410c',
+            accentCoral: '#f97316',
+            accentAmber: '#d97706',
+            brandLight: '#fafaf9',
+            brandDark: '#1c1917'
+          },
+          boxShadow: {
+            bloom: '0 10px 30px -5px rgba(180, 83, 9, 0.28)',
+            'bloom-hover': '0 20px 40px -10px rgba(180, 83, 9, 0.42)',
+            'glow': '0 0 40px -8px rgba(234, 88, 12, 0.35)',
+            'lift': '0 20px 40px -12px rgba(28, 25, 23, 0.18)',
+            'lift-dark': '0 20px 40px -12px rgba(0, 0, 0, 0.6)'
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+
+    html { scrollbar-width: thin; scrollbar-color: #b45309 #ffedd5; }
+    html.dark { scrollbar-color: #ea580c #1c1917; }
+
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #ffedd5; }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #b45309, #ea580c);
+      border-radius: 9999px;
+      border: 2px solid #ffedd5;
+    }
+    ::-webkit-scrollbar-thumb:hover { background: #92400e; }
+    html.dark ::-webkit-scrollbar-track { background: #1c1917; }
+    html.dark ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #ea580c, #b45309);
+      border: 2px solid #1c1917;
+    }
+    html.dark ::-webkit-scrollbar-thumb:hover { background: #c2410c; }
+
+    .bloom-scrollbar { scrollbar-width: thin; scrollbar-color: #b45309 transparent; }
+    .bloom-scrollbar::-webkit-scrollbar { width: 4px; }
+    .bloom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+    .bloom-scrollbar::-webkit-scrollbar-thumb {
+      background: #b45309;
+      border-radius: 9999px;
+    }
+    .bloom-scrollbar::-webkit-scrollbar-thumb:hover { background: #92400e; }
+
+    /* ============================================
+       LUXURY HELPERS
+       ============================================ */
+    .sec-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: #b45309;
+      margin-bottom: 10px;
+    }
+    .sec-eyebrow::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.6;
+    }
+    html.dark .sec-eyebrow { color: #fb923c; }
+
+    /* Drop cap for the letter section */
+    .drop-cap::first-letter {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.75rem;
+      line-height: 0.85;
+      float: inline-start;
+      padding-inline-end: 0.6rem;
+      padding-block-start: 0.35rem;
+      color: #b45309;
+      font-weight: 700;
+    }
+    html.dark .drop-cap::first-letter { color: #fb923c; }
+
+    /* ===== Modern Gradient Border Card — darkened ===== */
+    .grad-border {
+      position: relative;
+      background: linear-gradient(135deg, rgba(120, 53, 15, 0.75), rgba(180, 83, 9, 0.4) 40%, rgba(120, 53, 15, 0.2) 70%, rgba(180, 83, 9, 0.75));
+      padding: 1.5px;
+      border-radius: 1.75rem;
+      transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .grad-border:hover {
+      background: linear-gradient(135deg, rgba(120, 53, 15, 1), rgba(180, 83, 9, 0.7) 40%, rgba(120, 53, 15, 0.4) 70%, rgba(180, 83, 9, 1));
+      box-shadow: 0 20px 40px -12px rgba(120, 53, 15, 0.35);
+    }
+    html.dark .grad-border {
+      background: linear-gradient(135deg, rgba(234, 88, 12, 0.85), rgba(180, 83, 9, 0.45) 40%, rgba(234, 88, 12, 0.25) 70%, rgba(180, 83, 9, 0.85));
+    }
+    html.dark .grad-border:hover {
+      background: linear-gradient(135deg, rgba(251, 146, 60, 1), rgba(234, 88, 12, 0.7) 40%, rgba(251, 146, 60, 0.4) 70%, rgba(234, 88, 12, 1));
+      box-shadow: 0 20px 40px -12px rgba(234, 88, 12, 0.5);
+    }
+
+    /* Ambient glow dot */
+    .glow-dot {
+      position: absolute;
+      border-radius: 9999px;
+      filter: blur(80px);
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    /* ============================================
+       FIXED FULL VIEWPORT HERO BACKGROUND
+       ============================================ */
+    .about-hero-bg {
+      background-image: url('https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-color: #0c0a09;
+      min-height: 100vh;
+      min-height: 100dvh;
+    }
+
+    @supports (-webkit-touch-callout: none) {
+      .about-hero-bg {
+        background-attachment: scroll;
+        background-position: center center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+
+<body id="top" class="bg-brandLight dark:bg-brandDark text-stone-800 dark:text-stone-100 antialiased transition-colors duration-300">
+
+  <!-- ================= 1. NAVBAR ================= -->
+  <header class="sticky top-0 z-50 w-full bg-white/95 dark:bg-[#1c1917]/95 backdrop-blur-md border-b border-orange-100 dark:border-stone-800/70 shadow-sm transition-colors duration-300">
+    <nav class="max-w-[1400px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between gap-4" aria-label="Main Navigation">
+
+      <a href="index.html" class="flex items-center gap-3 flex-shrink-0 group" aria-label="Chai Haven home">
+        <span class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-primary to-secondary flex items-center justify-center shadow-bloom text-white transition-transform duration-300 group-hover:scale-105">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M17 8h1a4 4 0 110 8h-1"/>
+            <path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"/>
+            <path d="M6 2v3"/>
+            <path d="M10 2v3"/>
+            <path d="M14 2v3"/>
+          </svg>
+        </span>
+        <span class="flex flex-col">
+          <span class="text-2xl font-playfair font-extrabold tracking-tight bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent leading-tight">
+            Chai Haven
+          </span>
+          <span class="text-[9px] uppercase font-bold tracking-widest text-orange-700 dark:text-orange-400 -mt-1">
+            Tea House & Specialty Stall
+          </span>
+        </span>
+      </a>
+
+      <div class="hidden xl:flex items-center gap-6 2xl:gap-8">
+        <div class="relative group">
+          <button type="button" class="flex items-center gap-1.5 text-[11px] font-bold tracking-[0.14em] uppercase text-primary dark:text-orange-400 py-6 focus:outline-none">
+            Home
+            <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div class="absolute top-full start-0 w-48 bg-white dark:bg-[#292524] border border-orange-100 dark:border-stone-800/40 shadow-bloom rounded-b-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 origin-top -translate-y-2 group-hover:translate-y-0 z-50">
+            <div class="py-2">
+              <a href="index.html" class="block px-4 py-2.5 text-[11px] font-bold tracking-[0.14em] uppercase text-primary dark:text-orange-400 bg-primaryLight/60 dark:bg-stone-800/40 transition-colors">home1</a>
+              <a href="home-2.html" class="block px-4 py-2.5 text-[11px] font-bold tracking-[0.14em] uppercase text-stone-700 dark:text-stone-300 hover:bg-primaryLight dark:hover:bg-stone-800/60 hover:text-primary transition-colors">home2</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="about.html" class="text-[11px] font-bold tracking-[0.14em] uppercase text-stone-700 dark:text-stone-200 hover:text-primary dark:hover:text-orange-400 transition-colors">About</a>
+        <a href="our-chai.html" class="text-[11px] font-bold tracking-[0.14em] uppercase text-stone-700 dark:text-stone-200 hover:text-primary dark:hover:text-orange-400 transition-colors">Our Chai</a>
+        <a href="menu.html" class="text-[11px] font-bold tracking-[0.14em] uppercase text-stone-700 dark:text-stone-200 hover:text-primary dark:hover:text-orange-400 transition-colors">Menu</a>
+        <a href="loyalty.html" class="text-[11px] font-bold tracking-[0.14em] uppercase text-stone-700 dark:text-stone-200 hover:text-primary dark:hover:text-orange-400 transition-colors">Loyalty</a>
+        <a href="tea-journal.html" class="text-[11px] font-bold tracking-[0.14em] uppercase text-stone-700 dark:text-stone-200 hover:text-primary dark:hover:text-orange-400 transition-colors">Tea Journal</a>
+        <a href="contact.html" class="text-[11px] font-bold tracking-[0.14em] uppercase text-stone-700 dark:text-stone-200 hover:text-primary dark:hover:text-orange-400 transition-colors">Contact & Map</a>
+      </div>
+
+      <div class="hidden xl:flex items-center gap-5">
+        <button type="button" onclick="toggleRTL()" aria-label="Toggle text direction" class="text-[11px] font-bold uppercase tracking-[0.14em] text-stone-600 dark:text-stone-400 hover:text-primary transition-colors flex items-center gap-1.5">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+          </svg>
+          <span id="rtl-label">RTL</span>
+        </button>
+
+        <button type="button" onclick="toggleTheme()" aria-label="Toggle color theme" class="text-stone-600 dark:text-stone-400 hover:text-primary transition-colors p-1.5">
+          <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+          <svg class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+          </svg>
+        </button>
+
+        <a href="menu.html" class="bg-gradient-to-r from-primary to-secondary hover:from-primaryHover hover:to-secondaryHover text-white text-[11px] font-bold uppercase tracking-[0.14em] px-6 py-3 rounded-lg shadow-bloom hover:shadow-bloom-hover hover:-translate-y-0.5 transition-all duration-300 flex items-center gap-2 border border-orange-400/30">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+          </svg>
+          <span>Order Now</span>
+        </a>
+      </div>
+
+      <button id="hamburger-btn" type="button" class="xl:hidden text-primary dark:text-orange-400 p-2 focus:outline-none" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg id="menu-icon" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </nav>
+
+    <div id="mobile-menu" class="hidden flex-col bg-white dark:bg-[#1c1917] border-t border-orange-100 dark:border-stone-800/70 w-full shadow-2xl max-h-[85vh] overflow-y-auto px-6 py-8 bloom-scrollbar">
+      <div class="flex flex-col gap-6">
+        <div>
+          <span class="text-[11px] font-bold uppercase tracking-[0.14em] text-stone-400 block mb-2">Home</span>
+          <div class="flex flex-col gap-3 ps-3 border-s-2 border-primary">
+            <a href="index.html" class="text-sm font-bold uppercase tracking-[0.14em] text-primary dark:text-orange-400">home1</a>
+            <a href="home-2.html" class="text-sm font-bold uppercase tracking-[0.14em] text-stone-700 dark:text-stone-300 hover:text-primary">home2</a>
+          </div>
+        </div>
+
+        <a href="about.html" class="text-sm font-bold uppercase tracking-[0.14em] text-stone-800 dark:text-stone-100 hover:text-primary">About</a>
+        <a href="our-chai.html" class="text-sm font-bold uppercase tracking-[0.14em] text-stone-800 dark:text-stone-100 hover:text-primary">Our Chai</a>
+        <a href="menu.html" class="text-sm font-bold uppercase tracking-[0.14em] text-stone-800 dark:text-stone-100 hover:text-primary">Menu</a>
+        <a href="loyalty.html" class="text-sm font-bold uppercase tracking-[0.14em] text-stone-800 dark:text-stone-100 hover:text-primary">Loyalty</a>
+        <a href="tea-journal.html" class="text-sm font-bold uppercase tracking-[0.14em] text-stone-800 dark:text-stone-100 hover:text-primary">Tea Journal</a>
+        <a href="contact.html" class="text-sm font-bold uppercase tracking-[0.14em] text-stone-800 dark:text-stone-100 hover:text-primary">Contact & Map</a>
+
+        <hr class="border-orange-100 dark:border-stone-800/70 my-1" />
+
+        <div class="flex items-center justify-between gap-4">
+          <button type="button" onclick="toggleRTL()" class="flex-1 flex items-center justify-center gap-2 text-[11px] font-bold uppercase tracking-[0.14em] text-stone-600 dark:text-stone-300 border border-orange-200 dark:border-stone-800/60 rounded-lg px-4 py-3">
+            <span id="rtl-label-mobile">RTL</span>
+          </button>
+          <button type="button" onclick="toggleTheme()" class="flex-1 flex items-center justify-center gap-2 text-[11px] font-bold uppercase tracking-[0.14em] text-stone-600 dark:text-stone-300 border border-orange-200 dark:border-stone-800/60 rounded-lg px-4 py-3">
+            <span class="hidden dark:inline">Light</span>
+            <span class="inline dark:hidden">Dark</span>
+          </button>
+        </div>
+
+        <a href="menu.html" class="text-center bg-gradient-to-r from-primary to-secondary text-white text-sm font-bold uppercase tracking-[0.14em] px-6 py-3.5 rounded-lg shadow-bloom">
+          Order Now
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= 2. FULL VIEWPORT FIXED HERO ================= -->
+  <section class="about-hero-bg relative w-full flex items-center justify-center overflow-hidden">
+
+    <div class="absolute inset-0 bg-gradient-to-b from-stone-950/80 via-stone-900/65 to-stone-950/85"></div>
+    <div class="absolute inset-0 bg-primary/15 mix-blend-multiply"></div>
+
+    <div class="absolute -top-24 -end-24 w-[420px] h-[420px] bg-secondary/20 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="absolute -bottom-24 -start-24 w-[380px] h-[380px] bg-primary/20 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 py-24 w-full text-center">
+
+      <nav aria-label="Breadcrumb" class="flex justify-center mb-8">
+        <ol class="inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2">
+          <li>
+            <a href="index.html" class="text-[11px] font-bold uppercase tracking-[0.14em] text-orange-200 hover:text-white transition-colors">Home</a>
+          </li>
+          <li aria-hidden="true" class="text-orange-300/70">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />
+            </svg>
+          </li>
+          <li>
+            <span class="text-[11px] font-bold uppercase tracking-[0.14em] text-white" aria-current="page">About</span>
+          </li>
+        </ol>
+      </nav>
+
+      <div class="inline-flex items-center gap-2.5 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-5 py-2 mb-8 shadow-lg">
+        <span class="flex h-2.5 w-2.5 relative">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary"></span>
+        </span>
+        <span class="text-[11px] font-bold tracking-[0.14em] uppercase text-orange-100">
+          Our Story &amp; Our Craft
+        </span>
+      </div>
+
+      <h1 class="font-playfair text-5xl sm:text-6xl lg:text-7xl xl:text-8xl leading-[1.15] tracking-tight mb-7 text-white font-extrabold drop-shadow-2xl">
+        Brewed with
+        <span class="block mt-2 font-normal italic pb-1 bg-gradient-to-r from-orange-300 via-amber-200 to-orange-400 bg-clip-text text-transparent">
+          patience &amp; passion.
+        </span>
+      </h1>
+
+      <p class="text-lg sm:text-xl lg:text-2xl text-stone-200/95 leading-relaxed max-w-3xl mx-auto mb-12 drop-shadow-lg">
+        From a tiny roadside stall to a beloved neighbourhood tea house — discover the people, the spices, and the slow-simmered traditions behind every cup of Chai Haven.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+        <a href="our-chai.html" class="w-full sm:w-auto inline-flex items-center justify-center px-10 py-4 bg-gradient-to-r from-primary to-secondary hover:from-primaryHover hover:to-secondaryHover text-white text-sm font-bold uppercase tracking-wider rounded-lg shadow-bloom hover:shadow-bloom-hover hover:-translate-y-0.5 transition-all duration-300 border border-orange-400/30">
+          Explore Our Chai
+        </a>
+        <a href="contact.html" class="w-full sm:w-auto inline-flex items-center justify-center px-10 py-4 bg-white/10 backdrop-blur-md border-2 border-white/70 text-white hover:bg-white hover:text-primary text-sm font-bold uppercase tracking-wider rounded-lg transition-all duration-300">
+          Visit The Tea House
+        </a>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-6 pt-10 border-t border-white/20 max-w-2xl mx-auto">
+        <div class="flex flex-col items-center">
+          <span class="text-3xl sm:text-4xl font-playfair font-bold text-orange-300 mb-1">2014</span>
+          <span class="text-[11px] text-stone-300 uppercase tracking-[0.14em] font-semibold">Established</span>
+        </div>
+        <div class="hidden sm:block w-px h-12 bg-white/25"></div>
+        <div class="flex flex-col items-center">
+          <span class="text-3xl sm:text-4xl font-playfair font-bold text-orange-300 mb-1">15+</span>
+          <span class="text-[11px] text-stone-300 uppercase tracking-[0.14em] font-semibold">Signature Blends</span>
+        </div>
+        <div class="hidden sm:block w-px h-12 bg-white/25"></div>
+        <div class="flex flex-col items-center">
+          <span class="text-3xl sm:text-4xl font-playfair font-bold text-orange-300 mb-1">100%</span>
+          <span class="text-[11px] text-stone-300 uppercase tracking-[0.14em] font-semibold">Organic Spices</span>
+        </div>
+      </div>
+    </div>
+
+    <a href="#letter" aria-label="Scroll down" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 hidden sm:flex flex-col items-center gap-2 text-white/70 hover:text-white transition-colors duration-300">
+      <span class="text-[10px] font-bold uppercase tracking-[0.2em]">Scroll</span>
+      <span class="w-9 h-9 rounded-full border border-white/40 flex items-center justify-center animate-bounce">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      </span>
+    </a>
+  </section>
+
+  <!-- ================= 3. A LETTER FROM THE FOUNDERS (LIGHT MODE) ================= -->
+  <section id="letter" class="relative w-full py-20 lg:py-24 bg-brandLight dark:bg-[#1c1917] transition-colors duration-300 overflow-hidden">
+    <div class="glow-dot w-[480px] h-[480px] bg-primary/15 dark:bg-primary/10 -top-40 -start-40"></div>
+    <div class="glow-dot w-[420px] h-[420px] bg-secondary/15 dark:bg-secondary/10 bottom-0 -end-40"></div>
+
+    <div class="max-w-[1200px] mx-auto px-6 lg:px-12 relative">
+
+      <div class="grad-border">
+        <div class="rounded-[1.7rem] bg-white dark:bg-[#292524] p-8 sm:p-12 lg:p-16">
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+
+            <!-- Left column: eyebrow, heading, and luxury image -->
+            <div class="lg:col-span-5">
+              <span class="sec-eyebrow">01 · A Letter</span>
+              <h2 class="font-playfair text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight text-stone-900 dark:text-white mb-6">
+                From the kitchen that<br/>
+                <span class="italic font-normal bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">started it all.</span>
+              </h2>
+              
+              <div class="grad-border">
+                <div class="relative w-full h-64 sm:h-72 rounded-[1.4rem] overflow-hidden group">
+                  <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80" alt="Luxury Tea Pour" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right column: letter body -->
+            <div class="lg:col-span-7">
+
+              <p class="drop-cap text-base sm:text-lg leading-relaxed text-stone-700 dark:text-stone-200 mb-5">
+                We started with one burner, one recipe, and a small brass pot that never seemed to stop simmering. There was no plan beyond getting through the first weekend — and yet here we are, twelve years later, still pouring the same cup.
+              </p>
+
+              <p class="text-sm sm:text-base leading-relaxed text-stone-600 dark:text-stone-400 mb-5">
+                What began as a table for two became a table for the whole street. Students, grandmothers, night-shift nurses, first dates that turned into marriages — they all found the same corner, and somehow the chai always tasted better when shared.
+              </p>
+
+              <p class="text-sm sm:text-base leading-relaxed text-stone-600 dark:text-stone-400 mb-8">
+                We have grown since, but slowly. A second kettle. A small oven. A window that opens onto the spice lane. Every addition has been careful, and every recipe has stayed exactly where it began — in the little notebook we still keep behind the counter.
+              </p>
+
+              <!-- Signature strip -->
+              <div class="pt-6 border-t border-stone-300 dark:border-stone-600 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <div class="flex items-center gap-4">
+                  <span class="inline-flex w-12 h-12 items-center justify-center rounded-full bg-gradient-to-br from-primary to-secondary text-white shadow-bloom flex-shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 17l4-8 4 4 4-8 4 12H3z"/></svg>
+                  </span>
+                  <div>
+                    <p class="font-playfair italic text-lg text-stone-900 dark:text-white">— Amara &amp; Rohan Devi</p>
+                    <p class="text-[10px] uppercase tracking-[0.28em] text-stone-500 dark:text-stone-400 mt-0.5">Founders, Chai Haven</p>
+                  </div>
+                </div>
+                <span class="text-[10px] uppercase tracking-[0.28em] text-stone-500 dark:text-stone-400">Est. 2014 · Old Quarter</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 4. MILESTONES — HORIZONTAL TIMELINE ================= -->
+  <section class="relative w-full py-20 lg:py-24 bg-white dark:bg-[#221f1d] transition-colors duration-300 overflow-hidden">
+    <div class="glow-dot w-[420px] h-[420px] bg-primary/15 dark:bg-primary/10 top-1/2 -end-40"></div>
+
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-12 relative">
+
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-10 pb-5 border-b-2 border-stone-300 dark:border-stone-600">
+        <div>
+          <span class="sec-eyebrow">02 · Milestones</span>
+          <h2 class="font-playfair text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight text-stone-900 dark:text-white">
+            A dozen years,<br/>
+            <span class="italic font-normal bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">five quiet turning points.</span>
+          </h2>
+        </div>
+        <span class="text-[10px] uppercase tracking-[0.28em] text-stone-500 dark:text-stone-400">2014 — 2026</span>
+      </div>
+
+      <!-- Timeline wrapper -->
+      <div class="relative">
+
+        <!-- Horizontal line (lg only) -->
+        <span aria-hidden="true" class="hidden lg:block absolute top-[6px] left-[6px] right-[6px] h-px bg-stone-400 dark:bg-stone-600"></span>
+
+        <ol class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-x-6 gap-y-8">
+
+          <!-- 2014 -->
+          <li class="relative lg:pt-10 flex lg:block gap-4 lg:gap-0">
+            <span class="lg:absolute lg:top-0 lg:start-0 mt-1.5 lg:mt-0 w-3 h-3 rounded-full bg-gradient-to-tr from-primary to-secondary ring-4 ring-white dark:ring-[#221f1d] flex-shrink-0 shadow-bloom"></span>
+            <div>
+              <p class="font-playfair text-3xl sm:text-4xl font-extrabold bg-gradient-to-br from-primary to-secondary bg-clip-text text-transparent leading-none mb-3">2014</p>
+              <h3 class="font-playfair text-base font-bold text-stone-900 dark:text-white mb-2 leading-snug">The First Stall</h3>
+              <p class="text-xs text-stone-500 dark:text-stone-400 leading-relaxed">
+                Two burners, one recipe, and a folding table on the corner of Spice Lane.
+              </p>
+            </div>
+          </li>
+
+          <!-- 2016 -->
+          <li class="relative lg:pt-10 flex lg:block gap-4 lg:gap-0">
+            <span class="lg:absolute lg:top-0 lg:start-0 mt-1.5 lg:mt-0 w-3 h-3 rounded-full bg-gradient-to-tr from-primary to-secondary ring-4 ring-white dark:ring-[#221f1d] flex-shrink-0 shadow-bloom"></span>
+            <div>
+              <p class="font-playfair text-3xl sm:text-4xl font-extrabold bg-gradient-to-br from-primary to-secondary bg-clip-text text-transparent leading-none mb-3">2016</p>
+              <h3 class="font-playfair text-base font-bold text-stone-900 dark:text-white mb-2 leading-snug">The Brass Kettle</h3>
+              <p class="text-xs text-stone-500 dark:text-stone-400 leading-relaxed">
+                We swapped the steel pot for the old brass kettle still hanging behind the counter.
+              </p>
+            </div>
+          </li>
+
+          <!-- 2019 -->
+          <li class="relative lg:pt-10 flex lg:block gap-4 lg:gap-0">
+            <span class="lg:absolute lg:top-0 lg:start-0 mt-1.5 lg:mt-0 w-3 h-3 rounded-full bg-gradient-to-tr from-primary to-secondary ring-4 ring-white dark:ring-[#221f1d] flex-shrink-0 shadow-bloom"></span>
+            <div>
+              <p class="font-playfair text-3xl sm:text-4xl font-extrabold bg-gradient-to-br from-primary to-secondary bg-clip-text text-transparent leading-none mb-3">2019</p>
+              <h3 class="font-playfair text-base font-bold text-stone-900 dark:text-white mb-2 leading-snug">The Tea House</h3>
+              <p class="text-xs text-stone-500 dark:text-stone-400 leading-relaxed">
+                Twenty-two seats, one long wooden table, and a menu that fit on a single page.
+              </p>
+            </div>
+          </li>
+
+          <!-- 2022 -->
+          <li class="relative lg:pt-10 flex lg:block gap-4 lg:gap-0">
+            <span class="lg:absolute lg:top-0 lg:start-0 mt-1.5 lg:mt-0 w-3 h-3 rounded-full bg-gradient-to-tr from-primary to-secondary ring-4 ring-white dark:ring-[#221f1d] flex-shrink-0 shadow-bloom"></span>
+            <div>
+              <p class="font-playfair text-3xl sm:text-4xl font-extrabold bg-gradient-to-br from-primary to-secondary bg-clip-text text-transparent leading-none mb-3">2022</p>
+              <h3 class="font-playfair text-base font-bold text-stone-900 dark:text-white mb-2 leading-snug">Direct Sourcing</h3>
+              <p class="text-xs text-stone-500 dark:text-stone-400 leading-relaxed">
+                The first trip to Munnar and Darjeeling — and every leaf since has come from someone we know.
+              </p>
+            </div>
+          </li>
+
+          <!-- 2025 -->
+          <li class="relative lg:pt-10 flex lg:block gap-4 lg:gap-0">
+            <span class="lg:absolute lg:top-0 lg:start-0 mt-1.5 lg:mt-0 w-3 h-3 rounded-full bg-gradient-to-tr from-primary to-secondary ring-4 ring-white dark:ring-[#221f1d] flex-shrink-0 shadow-bloom"></span>
+            <div>
+              <p class="font-playfair text-3xl sm:text-4xl font-extrabold bg-gradient-to-br from-primary to-secondary bg-clip-text text-transparent leading-none mb-3">2025</p>
+              <h3 class="font-playfair text-base font-bold text-stone-900 dark:text-white mb-2 leading-snug">Loyalty &amp; Letters</h3>
+              <p class="text-xs text-stone-500 dark:text-stone-400 leading-relaxed">
+                Over 3,400 readers on the brew letter, and a stamp card that keeps coming back.
+              </p>
+            </div>
+          </li>
+
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 5. THE PEOPLE BEHIND THE KETTLE ================= -->
+  <section class="relative w-full py-20 lg:py-24 bg-brandLight dark:bg-[#1c1917] transition-colors duration-300 overflow-hidden">
+    <div class="glow-dot w-[480px] h-[480px] bg-secondary/15 dark:bg-secondary/10 top-1/2 -start-40"></div>
+
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-12 relative">
+
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-10 pb-5 border-b-2 border-stone-300 dark:border-stone-600">
+        <div>
+          <span class="sec-eyebrow">03 · The Team</span>
+          <h2 class="font-playfair text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight text-stone-900 dark:text-white">
+            The hands behind every cup.
+          </h2>
+        </div>
+        <a href="contact.html" class="group inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.28em] text-stone-800 dark:text-stone-200 hover:text-primary dark:hover:text-orange-400 transition-colors duration-500 self-start sm:self-auto">
+          <span>Say Hello</span>
+          <svg class="w-4 h-4 transition-transform duration-500 group-hover:translate-x-1.5 rtl:group-hover:-translate-x-1.5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 lg:gap-8">
+
+        <!-- Team 1 -->
+        <figure class="group text-center">
+          <div class="grad-border">
+            <div class="relative aspect-square rounded-full overflow-hidden mx-auto max-w-[210px] ring-4 ring-white dark:ring-[#292524]">
+              <img src="img/me3.webp" alt="Amara Devi portrait" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"></div>
+            </div>
+          </div>
+          <figcaption class="mt-5">
+            <p class="font-playfair text-base sm:text-lg font-bold text-stone-900 dark:text-white">Amara Devi</p>
+            <p class="text-[10px] uppercase tracking-[0.28em] text-primary dark:text-orange-400 mt-1.5">Founder &amp; Head Brewer</p>
+          </figcaption>
+        </figure>
+
+        <!-- Team 2 -->
+        <figure class="group text-center">
+          <div class="grad-border">
+            <div class="relative aspect-square rounded-full overflow-hidden mx-auto max-w-[210px] ring-4 ring-white dark:ring-[#292524]">
+              <img src="img/wo3.webp" alt="Rohan Devi portrait" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"></div>
+            </div>
+          </div>
+          <figcaption class="mt-5">
+            <p class="font-playfair text-base sm:text-lg font-bold text-stone-900 dark:text-white">Rohan Devi</p>
+            <p class="text-[10px] uppercase tracking-[0.28em] text-primary dark:text-orange-400 mt-1.5">Co-Founder &amp; Spice Buyer</p>
+          </figcaption>
+        </figure>
+
+        <!-- Team 3 -->
+        <figure class="group text-center">
+          <div class="grad-border">
+            <div class="relative aspect-square rounded-full overflow-hidden mx-auto max-w-[210px] ring-4 ring-white dark:ring-[#292524]">
+              <img src="img/me2.webp" alt="Nadia Kapoor portrait" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"></div>
+            </div>
+          </div>
+          <figcaption class="mt-5">
+            <p class="font-playfair text-base sm:text-lg font-bold text-stone-900 dark:text-white">Nadia Kapoor</p>
+            <p class="text-[10px] uppercase tracking-[0.28em] text-primary dark:text-orange-400 mt-1.5">Journal Editor</p>
+          </figcaption>
+        </figure>
+
+        <!-- Team 4 -->
+        <figure class="group text-center">
+          <div class="grad-border">
+            <div class="relative aspect-square rounded-full overflow-hidden mx-auto max-w-[210px] ring-4 ring-white dark:ring-[#292524]">
+              <img src="img/wo2.webp" alt="Kabir Sen portrait" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent pointer-events-none"></div>
+            </div>
+          </div>
+          <figcaption class="mt-5">
+            <p class="font-playfair text-base sm:text-lg font-bold text-stone-900 dark:text-white">Kabir Sen</p>
+            <p class="text-[10px] uppercase tracking-[0.28em] text-primary dark:text-orange-400 mt-1.5">Pastry Chef</p>
+          </figcaption>
+        </figure>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 6. CRAFT IN NUMBERS — STAGGERED STATISTICS ================= -->
+  <section class="relative w-full py-20 lg:py-24 bg-white dark:bg-[#221f1d] transition-colors duration-300 overflow-hidden">
+    <div class="glow-dot w-[420px] h-[420px] bg-primary/15 dark:bg-primary/10 top-20 end-0"></div>
+
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-12 relative">
+
+      <div class="mb-10 pb-5 border-b-2 border-stone-300 dark:border-stone-600">
+        <span class="sec-eyebrow">04 · Craft in Numbers</span>
+        <h2 class="font-playfair text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight text-stone-900 dark:text-white max-w-2xl">
+          Everything we do, measured in cups.<br/>
+          <span class="italic font-normal bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Only the honest ones below.</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10">
+
+        <!-- Stat 1 -->
+        <div class="grad-border group">
+          <div class="bg-white dark:bg-[#292524] p-6 lg:p-7 h-full rounded-[1.7rem] relative overflow-hidden">
+            <div class="absolute -top-8 -end-8 w-28 h-28 bg-primary/5 dark:bg-primary/10 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+            <p class="relative font-playfair text-5xl sm:text-6xl lg:text-7xl font-extrabold bg-gradient-to-br from-primary to-secondary bg-clip-text text-transparent leading-none mb-4">14</p>
+            <div class="relative pt-4 border-t border-stone-300 dark:border-stone-600">
+              <p class="text-xs font-bold uppercase tracking-[0.24em] text-stone-900 dark:text-white mb-1">Years Brewing</p>
+              <p class="text-xs text-stone-500 dark:text-stone-400 leading-relaxed">Same recipe, same corner, same kettle.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stat 2 (offset) -->
+        <div class="grad-border group">
+          <div class="bg-white dark:bg-[#292524] p-6 lg:p-7 lg:mt-10 h-full rounded-[1.7rem] relative overflow-hidden">
+            <div class="absolute -top-8 -end-8 w-28 h-28 bg-secondary/5 dark:bg-secondary/10 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+            <p class="relative font-playfair text-5xl sm:text-6xl lg:text-7xl font-extrabold bg-gradient-to-br from-secondary to-primary bg-clip-text text-transparent leading-none mb-4">50k<span class="text-3xl align-top">+</span></p>
+            <div class="relative pt-4 border-t border-stone-300 dark:border-stone-600">
+              <p class="text-xs font-bold uppercase tracking-[0.24em] text-stone-900 dark:text-white mb-1">Cups Served</p>
+              <p class="text-xs text-stone-500 dark:text-stone-400 leading-relaxed">And counting, every morning at seven.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stat 3 -->
+        <div class="grad-border group">
+          <div class="bg-white dark:bg-[#292524] p-6 lg:p-7 h-full rounded-[1.7rem] relative overflow-hidden">
+            <div class="absolute -top-8 -end-8 w-28 h-28 bg-amber-500/5 dark:bg-amber-500/10 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+            <p class="relative font-playfair text-5xl sm:text-6xl lg:text-7xl font-extrabold bg-gradient-to-br from-accentAmber to-secondary bg-clip-text text-transparent leading-none mb-4">15</p>
+            <div class="relative pt-4 border-t border-stone-300 dark:border-stone-600">
+              <p class="text-xs font-bold uppercase tracking-[0.24em] text-stone-900 dark:text-white mb-1">Signature Blends</p>
+              <p class="text-xs text-stone-500 dark:text-stone-400 leading-relaxed">Balanced by hand, never by formula.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stat 4 (offset) -->
+        <div class="grad-border group">
+          <div class="bg-white dark:bg-[#292524] p-6 lg:p-7 lg:mt-10 h-full rounded-[1.7rem] relative overflow-hidden">
+            <div class="absolute -top-8 -end-8 w-28 h-28 bg-primary/5 dark:bg-primary/10 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+            <p class="relative font-playfair text-5xl sm:text-6xl lg:text-7xl font-extrabold bg-gradient-to-br from-primary to-secondary bg-clip-text text-transparent leading-none mb-4">06</p>
+            <div class="relative pt-4 border-t border-stone-300 dark:border-stone-600">
+              <p class="text-xs font-bold uppercase tracking-[0.24em] text-stone-900 dark:text-white mb-1">Tea Gardens</p>
+              <p class="text-xs text-stone-500 dark:text-stone-400 leading-relaxed">Visited in person, every two years.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 7. WHAT WE STAND FOR — THREE PILLARS ================= -->
+  <section class="relative w-full py-20 lg:py-24 bg-brandLight dark:bg-[#1c1917] transition-colors duration-300 overflow-hidden">
+    <div class="glow-dot w-[420px] h-[420px] bg-primary/15 dark:bg-primary/10 top-1/2 start-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+
+    <div class="max-w-[1200px] mx-auto px-6 lg:px-12 relative">
+
+      <div class="mb-10 pb-5 border-b-2 border-stone-300 dark:border-stone-600">
+        <span class="sec-eyebrow">05 · What We Stand For</span>
+        <h2 class="font-playfair text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight text-stone-900 dark:text-white max-w-2xl">
+          Three rules we have<br/>
+          <span class="italic font-normal bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">never once broken.</span>
+        </h2>
+      </div>
+
+      <div class="grad-border">
+        <div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-stone-300 dark:divide-stone-600 rounded-[1.7rem] bg-white dark:bg-[#292524] overflow-hidden">
+
+          <!-- Pillar I -->
+          <article class="p-6 sm:p-8 lg:p-10 flex flex-col relative overflow-hidden group">
+            <div class="absolute -top-10 -end-10 w-40 h-40 bg-primary/5 dark:bg-primary/10 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+            <span class="relative font-playfair text-6xl sm:text-7xl lg:text-8xl font-extrabold leading-none bg-gradient-to-br from-primary/30 to-secondary/10 bg-clip-text text-transparent mb-4">I</span>
+            <h3 class="relative font-playfair text-xl sm:text-2xl font-bold text-stone-900 dark:text-white mb-3">Never rush the brew</h3>
+            <p class="relative text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
+              Seven minutes on a low flame. Every order, every day. If the kitchen is slow, the kettle is not — it is doing its job.
+            </p>
+          </article>
+
+          <!-- Pillar II -->
+          <article class="p-6 sm:p-8 lg:p-10 flex flex-col relative overflow-hidden group">
+            <div class="absolute -top-10 -end-10 w-40 h-40 bg-primary/5 dark:bg-primary/10 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+            <span class="relative font-playfair text-6xl sm:text-7xl lg:text-8xl font-extrabold leading-none bg-gradient-to-br from-primary/30 to-secondary/10 bg-clip-text text-transparent mb-4">II</span>
+            <h3 class="relative font-playfair text-xl sm:text-2xl font-bold text-stone-900 dark:text-white mb-3">Know the source</h3>
+            <p class="relative text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
+              Every leaf, every pod, every thread of saffron has a name and a face behind it. If we can't visit the garden, we don't buy the crop.
+            </p>
+          </article>
+
+          <!-- Pillar III -->
+          <article class="p-6 sm:p-8 lg:p-10 flex flex-col relative overflow-hidden group">
+            <div class="absolute -top-10 -end-10 w-40 h-40 bg-primary/5 dark:bg-primary/10 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
+            <span class="relative font-playfair text-6xl sm:text-7xl lg:text-8xl font-extrabold leading-none bg-gradient-to-br from-primary/30 to-secondary/10 bg-clip-text text-transparent mb-4">III</span>
+            <h3 class="relative font-playfair text-xl sm:text-2xl font-bold text-stone-900 dark:text-white mb-3">Poured, not pushed</h3>
+            <p class="relative text-sm text-stone-600 dark:text-stone-400 leading-relaxed">
+              No upsell, no upsizing, no rush at the counter. You take the seat you want for as long as you want it — and the cup stays warm.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 8. IN THE PRESS — PUBLICATION QUOTES ================= -->
+  <section class="relative w-full py-20 lg:py-24 bg-white dark:bg-[#221f1d] transition-colors duration-300 overflow-hidden">
+    <div class="glow-dot w-[420px] h-[420px] bg-secondary/15 dark:bg-secondary/10 bottom-0 -start-40"></div>
+
+    <div class="max-w-[1100px] mx-auto px-6 lg:px-12 relative">
+
+      <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-8 pb-5 border-b-2 border-stone-300 dark:border-stone-600">
+        <div>
+          <span class="sec-eyebrow">06 · In the Press</span>
+          <h2 class="font-playfair text-2xl sm:text-3xl lg:text-4xl font-extrabold leading-tight text-stone-900 dark:text-white">
+            A few kind mentions.
+          </h2>
+        </div>
+        <span class="text-[10px] uppercase tracking-[0.28em] text-stone-500 dark:text-stone-400">2019 — 2026</span>
+      </div>
+
+      <div class="flex flex-col gap-3">
+
+        <!-- Press 1 -->
+        <div class="grad-border group">
+          <a href="#" class="grid grid-cols-1 sm:grid-cols-[180px_1fr_auto] gap-3 sm:gap-6 p-5 sm:p-6 rounded-[1.4rem] bg-white dark:bg-[#292524] sm:items-center h-full">
+            <div class="min-w-0">
+              <p class="font-playfair text-base font-bold text-stone-900 dark:text-white group-hover:text-primary dark:group-hover:text-orange-400 transition-colors truncate">The Monsoon Times</p>
+              <p class="text-[10px] uppercase tracking-[0.24em] text-primary dark:text-orange-400 mt-1 font-bold">March 2024</p>
+            </div>
+            <p class="text-sm italic text-stone-600 dark:text-stone-400 leading-relaxed sm:border-s sm:border-stone-300 sm:dark:border-stone-600 sm:ps-6">
+              "The most quietly confident cup of chai in the old quarter."
+            </p>
+            <span class="hidden sm:flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.28em] text-stone-500 dark:text-stone-400 group-hover:text-primary dark:group-hover:text-orange-400 transition-colors">
+              <span>Read</span>
+              <svg class="w-3.5 h-3.5 transition-transform duration-500 group-hover:translate-x-1 rtl:group-hover:-translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </a>
+        </div>
+
+        <!-- Press 2 -->
+        <div class="grad-border group">
+          <a href="#" class="grid grid-cols-1 sm:grid-cols-[180px_1fr_auto] gap-3 sm:gap-6 p-5 sm:p-6 rounded-[1.4rem] bg-white dark:bg-[#292524] sm:items-center h-full">
+            <div class="min-w-0">
+              <p class="font-playfair text-base font-bold text-stone-900 dark:text-white group-hover:text-primary dark:group-hover:text-orange-400 transition-colors truncate">Old Quarter Gazette</p>
+              <p class="text-[10px] uppercase tracking-[0.24em] text-primary dark:text-orange-400 mt-1 font-bold">November 2023</p>
+            </div>
+            <p class="text-sm italic text-stone-600 dark:text-stone-400 leading-relaxed sm:border-s sm:border-stone-300 sm:dark:border-stone-600 sm:ps-6">
+              "A small stall with an outsized sense of ritual — and the finest cardamom chai in the city."
+            </p>
+            <span class="hidden sm:flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.28em] text-stone-500 dark:text-stone-400 group-hover:text-primary dark:group-hover:text-orange-400 transition-colors">
+              <span>Read</span>
+              <svg class="w-3.5 h-3.5 transition-transform duration-500 group-hover:translate-x-1 rtl:group-hover:-translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </a>
+        </div>
+
+        <!-- Press 3 -->
+        <div class="grad-border group">
+          <a href="#" class="grid grid-cols-1 sm:grid-cols-[180px_1fr_auto] gap-3 sm:gap-6 p-5 sm:p-6 rounded-[1.4rem] bg-white dark:bg-[#292524] sm:items-center h-full">
+            <div class="min-w-0">
+              <p class="font-playfair text-base font-bold text-stone-900 dark:text-white group-hover:text-primary dark:group-hover:text-orange-400 transition-colors truncate">Leaf &amp; Kettle</p>
+              <p class="text-[10px] uppercase tracking-[0.24em] text-primary dark:text-orange-400 mt-1 font-bold">June 2022</p>
+            </div>
+            <p class="text-sm italic text-stone-600 dark:text-stone-400 leading-relaxed sm:border-s sm:border-stone-300 sm:dark:border-stone-600 sm:ps-6">
+              "Rarely has a modern tea house so clearly understood that the tradition is the point."
+            </p>
+            <span class="hidden sm:flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.28em] text-stone-500 dark:text-stone-400 group-hover:text-primary dark:group-hover:text-orange-400 transition-colors">
+              <span>Read</span>
+              <svg class="w-3.5 h-3.5 transition-transform duration-500 group-hover:translate-x-1 rtl:group-hover:-translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </a>
+        </div>
+
+        <!-- Press 4 -->
+        <div class="grad-border group">
+          <a href="#" class="grid grid-cols-1 sm:grid-cols-[180px_1fr_auto] gap-3 sm:gap-6 p-5 sm:p-6 rounded-[1.4rem] bg-white dark:bg-[#292524] sm:items-center h-full">
+            <div class="min-w-0">
+              <p class="font-playfair text-base font-bold text-stone-900 dark:text-white group-hover:text-primary dark:group-hover:text-orange-400 transition-colors truncate">The Spice Route Review</p>
+              <p class="text-[10px] uppercase tracking-[0.24em] text-primary dark:text-orange-400 mt-1 font-bold">October 2020</p>
+            </div>
+            <p class="text-sm italic text-stone-600 dark:text-stone-400 leading-relaxed sm:border-s sm:border-stone-300 sm:dark:border-stone-600 sm:ps-6">
+              "The kind of place you walk into for one cup and leave two hours later, entirely at ease."
+            </p>
+            <span class="hidden sm:flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.28em] text-stone-500 dark:text-stone-400 group-hover:text-primary dark:group-hover:text-orange-400 transition-colors">
+              <span>Read</span>
+              <svg class="w-3.5 h-3.5 transition-transform duration-500 group-hover:translate-x-1 rtl:group-hover:-translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </a>
+        </div>
+
+        <!-- Press 5 -->
+        <div class="grad-border group">
+          <a href="#" class="grid grid-cols-1 sm:grid-cols-[180px_1fr_auto] gap-3 sm:gap-6 p-5 sm:p-6 rounded-[1.4rem] bg-white dark:bg-[#292524] sm:items-center h-full">
+            <div class="min-w-0">
+              <p class="font-playfair text-base font-bold text-stone-900 dark:text-white group-hover:text-primary dark:group-hover:text-orange-400 transition-colors truncate">Neighbourhood Weekly</p>
+              <p class="text-[10px] uppercase tracking-[0.24em] text-primary dark:text-orange-400 mt-1 font-bold">May 2019</p>
+            </div>
+            <p class="text-sm italic text-stone-600 dark:text-stone-400 leading-relaxed sm:border-s sm:border-stone-300 sm:dark:border-stone-600 sm:ps-6">
+              "Small, warm, and entirely without ego — which is rarer in this trade than you might think."
+            </p>
+            <span class="hidden sm:flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.28em] text-stone-500 dark:text-stone-400 group-hover:text-primary dark:group-hover:text-orange-400 transition-colors">
+              <span>Read</span>
+              <svg class="w-3.5 h-3.5 transition-transform duration-500 group-hover:translate-x-1 rtl:group-hover:-translate-x-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </span>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 9. COMPACT FOOTER ================= -->
+  <footer class="relative bg-[#0c0a09] text-stone-100 pt-10 pb-6 overflow-hidden border-t border-stone-800/70">
+    <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-primary"></div>
+
+    <div class="max-w-[1400px] mx-auto px-6 lg:px-12 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 mb-10">
+
+        <div class="lg:col-span-4">
+          <a href="index.html" class="flex items-center gap-3 mb-4" aria-label="Chai Haven home">
+            <span class="w-10 h-10 rounded-xl bg-gradient-to-tr from-primary to-secondary flex items-center justify-center text-white shadow-bloom flex-shrink-0">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M17 8h1a4 4 0 110 8h-1"/>
+                <path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8z"/>
+                <path d="M6 2v3"/>
+                <path d="M10 2v3"/>
+                <path d="M14 2v3"/>
+              </svg>
+            </span>
+            <span class="flex flex-col">
+              <span class="text-xl font-playfair font-extrabold tracking-tight bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent leading-tight">
+                Chai Haven
+              </span>
+              <span class="text-[8px] uppercase font-bold tracking-widest text-orange-400">
+                Tea House & Specialty Stall
+              </span>
+            </span>
+          </a>
+          <p class="text-sm text-stone-400 leading-relaxed mb-6 font-medium max-w-sm">
+            A cozy sanctuary offering the finest handcrafted chai, premium loose-leaf teas, and artisanal baked goods.
+          </p>
+
+          <div class="flex flex-wrap gap-2 mb-6">
+            <span class="inline-flex items-center gap-1 bg-stone-800/60 border border-stone-700/60 rounded-full px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider text-orange-400">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+              Organic Spices
+            </span>
+            <span class="inline-flex items-center gap-1 bg-stone-800/60 border border-stone-700/60 rounded-full px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider text-orange-400">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/></svg>
+              Fair Trade
+            </span>
+          </div>
+
+          <div class="flex gap-2">
+            <a href="#" aria-label="X Profile" class="w-8 h-8 rounded-full bg-stone-800/60 border border-stone-700/60 flex items-center justify-center text-stone-400 hover:text-white hover:border-orange-400/40 transition-all duration-300">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
+            </a>
+            <a href="#" aria-label="Instagram Profile" class="w-8 h-8 rounded-full bg-stone-800/60 border border-stone-700/60 flex items-center justify-center text-stone-400 hover:text-white hover:border-orange-400/40 transition-all duration-300">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073z" /></svg>
+            </a>
+            <a href="#" aria-label="Facebook Profile" class="w-8 h-8 rounded-full bg-stone-800/60 border border-stone-700/60 flex items-center justify-center text-stone-400 hover:text-white hover:border-orange-400/40 transition-all duration-300">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-2">
+          <h4 class="text-white font-bold tracking-[0.14em] uppercase text-xs mb-4 relative pb-2">
+            Our Menu
+            <span class="absolute bottom-0 left-0 w-6 h-0.5 bg-gradient-to-r from-primary to-secondary rounded-full"></span>
+          </h4>
+          <ul class="flex flex-col gap-2.5">
+            <li><a href="menu.html#signature-chai" class="text-sm text-stone-400 hover:text-orange-400 transition-colors font-medium">Signature Chai</a></li>
+            <li><a href="menu.html#herbal-teas" class="text-sm text-stone-400 hover:text-orange-400 transition-colors font-medium">Herbal Teas</a></li>
+            <li><a href="menu.html#iced-beverages" class="text-sm text-stone-400 hover:text-orange-400 transition-colors font-medium">Iced Beverages</a></li>
+            <li><a href="menu.html#pastries" class="text-sm text-stone-400 hover:text-orange-400 transition-colors font-medium">Fresh Pastries</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-2">
+          <h4 class="text-white font-bold tracking-[0.14em] uppercase text-xs mb-4 relative pb-2">
+            Discover
+            <span class="absolute bottom-0 left-0 w-6 h-0.5 bg-gradient-to-r from-primary to-secondary rounded-full"></span>
+          </h4>
+          <ul class="flex flex-col gap-2.5">
+            <li><a href="loyalty.html" class="text-sm text-stone-400 hover:text-orange-400 transition-colors font-medium">Loyalty Program</a></li>
+            <li><a href="about.html" class="text-sm text-stone-400 hover:text-orange-400 transition-colors font-medium">Our Story</a></li>
+            <li><a href="tea-journal.html" class="text-sm text-stone-400 hover:text-orange-400 transition-colors font-medium">Tea Journal</a></li>
+            <li><a href="faq.html" class="text-sm text-stone-400 hover:text-orange-400 transition-colors font-medium">FAQs</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-4">
+          <h4 class="text-white font-bold tracking-[0.14em] uppercase text-xs mb-4 relative pb-2">
+            Visit Us
+            <span class="absolute bottom-0 left-0 w-6 h-0.5 bg-gradient-to-r from-primary to-secondary rounded-full"></span>
+          </h4>
+          <ul class="flex flex-col gap-3">
+            <li>
+              <a href="contact.html#map" class="group flex items-start gap-2 text-sm text-stone-400 hover:text-orange-400 transition-colors font-medium">
+                <span class="w-6 h-6 rounded bg-stone-800/60 border border-stone-700/60 flex items-center justify-center text-orange-400 flex-shrink-0">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                </span>
+                <span class="pt-0.5">View Location Map</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:hello@chaihaven.com" class="group flex items-start gap-2 text-sm text-stone-400 hover:text-orange-400 transition-colors font-medium">
+                <span class="w-6 h-6 rounded bg-stone-800/60 border border-stone-700/60 flex items-center justify-center text-orange-400 flex-shrink-0">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                </span>
+                <span class="pt-0.5">hello@chaihaven.com</span>
+              </a>
+            </li>
+            <li class="flex items-start gap-2 text-sm text-stone-400 font-medium">
+              <span class="w-6 h-6 rounded bg-stone-800/60 border border-stone-700/60 flex items-center justify-center text-orange-400 flex-shrink-0">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </span>
+              <span class="pt-0.5">Mon–Sun · 7:00 AM – 8:00 PM</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="border-t border-stone-800/60 pt-4 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-[11px] text-stone-500 font-medium text-center md:text-start">
+          &copy; 2026 <span class="text-stone-300 font-semibold">Chai Haven</span>. All rights reserved.
+        </p>
+        <div class="flex items-center gap-6">
+          <a href="privacy.html" class="text-[11px] text-stone-500 hover:text-orange-400 transition-colors font-medium">Privacy Policy</a>
+          <a href="terms.html" class="text-[11px] text-stone-500 hover:text-orange-400 transition-colors font-medium">Terms of Service</a>
+        </div>
+        <a href="#top" aria-label="Back to top" class="w-8 h-8 rounded-full bg-stone-800/60 border border-stone-700/60 flex items-center justify-center text-stone-400 hover:text-white transition-all duration-300 hover:-translate-y-0.5">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" /></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= 10. SCRIPT ================= -->
+  <script>
+    (function () {
+      'use strict';
+      const hamburgerBtn = document.getElementById('hamburger-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
+
+      hamburgerBtn.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.toggle('hidden');
+        menuIcon.innerHTML = isHidden
+          ? '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />'
+          : '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />';
+        hamburgerBtn.setAttribute('aria-expanded', String(!isHidden));
+      });
+
+      window.toggleRTL = function () {
+        const isLtr = document.documentElement.getAttribute('dir') === 'ltr';
+        const nextDir = isLtr ? 'rtl' : 'ltr';
+        document.documentElement.setAttribute('dir', nextDir);
+        document.getElementById('rtl-label').textContent = isLtr ? 'LTR' : 'RTL';
+        document.getElementById('rtl-label-mobile').textContent = isLtr ? 'LTR' : 'RTL';
+        localStorage.setItem('dir', nextDir);
+      };
+
+      window.toggleTheme = function () {
+        const isDark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      };
+
+      if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+      if (localStorage.getItem('dir') === 'rtl') {
+        document.documentElement.setAttribute('dir', 'rtl');
+        document.getElementById('rtl-label').textContent = 'LTR';
+        document.getElementById('rtl-label-mobile').textContent = 'LTR';
+      }
+    })();
+  </script>
+</body>
+</html>
